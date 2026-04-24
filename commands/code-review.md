@@ -16,7 +16,7 @@ Read the actual source files — do not guess from function names or file names 
 
 4. **Scalability** — Will this still work when the data grows 10x? Look for unbounded resource usage — anything that loads an entire dataset into memory, grows without limit, or does repeated expensive work that could be done once.
 
-5. **Consistency** — Does this code follow the same patterns as the rest of the codebase? Flag places where the code breaks conventions without good reason, where related configuration values contradict each other, or where shared types are used inconsistently across consumers.
+5. **Consistency** — Does this code follow the same patterns as the rest of the codebase? Flag places where the code breaks conventions without good reason, or where related configuration values contradict each other. Check that types distinguish between "absent" and "empty" — callers should be able to tell whether data is missing or genuinely has no content.
 
 6. **Tests** — Do the tests prove the code works, or just prove it runs? Check whether tests verify actual behaviour and output, whether edge cases are covered, and whether the tests would catch a real regression.
 
